@@ -12,13 +12,11 @@ public class ControlTests
     }
 
     [Theory]
-    [InlineData(-999)]
-    [InlineData(-1)]
-    [InlineData(9)]
-    [InlineData(999)]
-    public void SetValue_ReturnsFalse_WhenInvalidPosition(int position)
+    [InlineData(9u)]
+    [InlineData(999u)]
+    public void SetValue_ReturnsFalse_WhenInvalidPosition(uint position)
     {
-        var value = 1;
+        var value = 1u;
 
         var result = _sut.SetValue(position, value);
 
@@ -26,13 +24,11 @@ public class ControlTests
     }
 
     [Theory]
-    [InlineData(-999)]
-    [InlineData(-1)]
-    [InlineData(3)]
-    [InlineData(999)]
-    public void SetValue_ReturnsFalse_WhenInvalidValue(int value)
+    [InlineData(3u)]
+    [InlineData(999u)]
+    public void SetValue_ReturnsFalse_WhenInvalidValue(uint value)
     {
-        var position = 1;
+        var position = 1u;
 
         var result = _sut.SetValue(position, value);
 
@@ -40,14 +36,14 @@ public class ControlTests
     }
 
     [Theory]
-    [InlineData(1, 1)]
-    [InlineData(1, 2)]
-    [InlineData(2, 1)]
-    [InlineData(2, 2)]
+    [InlineData(1u, 1u)]
+    [InlineData(1u, 2u)]
+    [InlineData(2u, 1u)]
+    [InlineData(2u, 2u)]
     public void SetValue_ReturnsFalse_WhenValueAlreadySet
-        (int initialValue, int newValue)
+        (uint initialValue, uint newValue)
     {
-        var position = 1;
+        var position = 1u;
         _sut.SetValue(position, initialValue);
 
         var result = _sut.SetValue(position, newValue);
@@ -56,11 +52,11 @@ public class ControlTests
     }
 
     [Theory]
-    [InlineData(1, 2)]
-    [InlineData(2, 1)]
-    [InlineData(5, 1)]
-    [InlineData(8, 2)]
-    public void SetValue_ReturnsTrue_WhenValueSet(int position, int value)
+    [InlineData(1u, 2u)]
+    [InlineData(2u, 1u)]
+    [InlineData(5u, 1u)]
+    [InlineData(8u, 2u)]
+    public void SetValue_ReturnsTrue_WhenValueSet(uint position, uint value)
     {
         var result = _sut.SetValue(position, value);
 

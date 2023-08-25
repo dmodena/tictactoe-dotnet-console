@@ -1,27 +1,24 @@
 ﻿namespace Game;
 public class Control
 {
-
     public bool Active { get; private set; }
-    private int[,] Values;
+    public readonly uint[,] Values;
 
-    private const int MinValue = 0;
-    private const int MaxValue = 2;
-    private const int MinPosition = 0;
-    private const int MaxPosition = 8;
+    private const uint MaxValue = 2;
+    private const uint MaxPosition = 8;
 
     public Control()
     {
-        Values = new int[3, 3];
+        Values = new uint[3, 3];
         Active = true;
     }
 
 
-    public bool SetValue(int position, int value)
+    public bool SetValue(uint position, uint value)
     {
-        if (position < MinPosition || position > MaxPosition)
+        if (position > MaxPosition)
             return false;
-        if (value < MinValue || value > MaxValue)
+        if (value > MaxValue)
             return false;
 
         var (row, col) = MapPosition(position);
@@ -34,10 +31,10 @@ public class Control
         return true;
     }
 
-    private (int, int) MapPosition(int inPosition)
+    private (uint, uint) MapPosition(uint inPosition)
     {
-        var row = inPosition / 3;
-        var col = inPosition % 3;
+        var row = inPosition / 3u;
+        var col = inPosition % 3u;
 
         return (row, col);
     }
