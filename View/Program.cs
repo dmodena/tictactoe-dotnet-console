@@ -1,15 +1,15 @@
 ﻿using System.Text;
 using Game;
 
-static void PrintBoard(uint[,] values, string[] symbols)
+static void PrintBoard(uint[] values, string[] symbols)
 {
     var sb = new StringBuilder();
 
-    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[0, 0]], symbols[values[0, 1]], symbols[values[0, 2]]));
+    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[0]], symbols[values[1]], symbols[values[2]]));
     sb.Append("---|---|---\n");
-    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[1, 0]], symbols[values[1, 1]], symbols[values[1, 2]]));
+    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[3]], symbols[values[4]], symbols[values[5]]));
     sb.Append("---|---|---\n");
-    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[2, 0]], symbols[values[2, 1]], symbols[values[2, 2]]));
+    sb.Append(string.Format(" {0} | {1} | {2} \n", symbols[values[6]], symbols[values[7]], symbols[values[8]]));
 
     Console.WriteLine(sb.ToString());
 }
@@ -36,11 +36,6 @@ static uint? GetUserPosition()
 
     return null;
 }
-
-//int[,] values = { { 1, 0, 0 }, { 0, 2, 0 }, { 0, 0, 0 } };
-//var symbols = new string[] { " ", "x", "o" };
-
-//PrintBoard(values, symbols);
 
 var gameControl = new Control();
 var cpu = new PredictablePlayer();

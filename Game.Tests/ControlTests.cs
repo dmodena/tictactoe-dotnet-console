@@ -62,4 +62,19 @@ public class ControlTests
 
         Assert.True(result);
     }
+
+    [Fact]
+    public void Values_ReturnCorrectValuesForGrid()
+    {
+        _sut.SetValue(0, 1);
+        _sut.SetValue(2, 1);
+        _sut.SetValue(5, 2);
+        _sut.SetValue(7, 1);
+        _sut.SetValue(8, 2);
+
+        uint[] expected = { 1, 0, 1, 0, 0, 2, 0, 1, 2 };
+        var result = _sut.Values;
+
+        Assert.Equal(expected, result);
+    }
 }

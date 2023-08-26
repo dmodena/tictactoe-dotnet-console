@@ -3,7 +3,7 @@ namespace Game
 {
     public class PredictablePlayer : IPlay
     {
-        public uint? Play(uint[,] values, uint playerValue)
+        public uint? Play(uint[] values, uint playerValue)
         {
             uint pos = 0;
             foreach (var v in values)
