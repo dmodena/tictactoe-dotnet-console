@@ -38,7 +38,7 @@ static uint? GetUserPosition()
 }
 
 var gameControl = new Control();
-var cpu = new PredictablePlayer();
+var cpu = new RandomPlayer();
 var symbols = new string[] { " ", "x", "o" };
 
 
