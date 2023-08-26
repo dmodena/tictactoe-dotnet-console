@@ -69,3 +69,6 @@ do
         gameControl.SetValue(pos.Value, cpuValue);
 
 } while (gameControl.Active);
+
+PrintBoard(gameControl.Values, symbols);
+Console.WriteLine("Game over");

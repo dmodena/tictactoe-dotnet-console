@@ -28,6 +28,8 @@ public class Control
             return false;
 
         _grid[row, col] = value;
+        UpdateActive();
+
         return true;
     }
 
@@ -48,5 +50,16 @@ public class Control
             values[index++] = v;
 
         return values;
+    }
+
+    private void UpdateActive()
+    {
+        var hasEmpty = false;
+
+        foreach (var v in _grid)
+            if (v == 0u)
+                hasEmpty = true;
+
+        Active = hasEmpty;
     }
 }
