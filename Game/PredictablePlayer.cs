@@ -1,20 +1,12 @@
-﻿using System;
-namespace Game
+﻿namespace Game
 {
     public class PredictablePlayer : IPlay
     {
         public uint? Play(uint[] values, uint playerValue)
         {
-            uint pos = 0;
-            foreach (var v in values)
-            {
-                if (v == 0)
-                    return pos;
+            var pos = Array.IndexOf(values, 0u);
 
-                pos++;
-            }
-
-            return null;
+            return pos != -1 ? (uint?)pos : null;
         }
     }
 }
