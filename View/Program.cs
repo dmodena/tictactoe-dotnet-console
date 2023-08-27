@@ -38,7 +38,7 @@ static uint? GetUserPosition()
 }
 
 var gameControl = new Control();
-var cpu = new RandomPlayer();
+var cpu = new MinimaxPlayer();
 var symbols = new string[] { " ", "x", "o" };
 
 
