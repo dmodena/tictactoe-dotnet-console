@@ -1,5 +1,4 @@
-﻿using System;
-namespace Game
+﻿namespace Game
 {
     public interface IPlay
     {

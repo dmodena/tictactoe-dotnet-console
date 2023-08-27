@@ -1,5 +1,3 @@
-using Game;
-
 namespace Game.Tests;
 
 public class ControlTests
