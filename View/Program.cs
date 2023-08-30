@@ -38,7 +38,7 @@ static uint? GetUserPosition()
 }
 
 var gameControl = new Control();
-var cpu = new MinimaxPlayer();
+var cpu = new MinimaxPlayer(new ReversingBoard());
 var symbols = new string[] { " ", "x", "o" };
 
 

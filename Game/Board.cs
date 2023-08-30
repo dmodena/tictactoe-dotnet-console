@@ -2,11 +2,11 @@
 {
     public class Board : IBoard
     {
-        public uint[] Line { get => _line; }
+        public uint[] Line { get => line; }
         public uint[] AvailablePositions { get => GetAvailablePositions(); }
         public uint? Winner { get => GetWinner(); }
 
-        private readonly uint[] _line;
+        protected readonly uint[] line;
         private const uint LineLength = 9;
         private const uint MaxPosition = 8;
         private const uint MaxCellValue = 2;
@@ -16,18 +16,18 @@
         public Board(uint[] line)
         {
             ValidateLine(line);
-            _line = line;
+            this.line = line;
         }
 
-        public bool SetCell(uint position, uint value)
+        public virtual bool SetCell(uint position, uint value)
         {
             ValidatePosition(position);
             ValidateValue(value);
 
-            if (_line[position] != 0)
+            if (line[position] != 0)
                 return false;
 
-            _line[position] = value;
+            line[position] = value;
             return true;
         }
 
@@ -37,7 +37,7 @@
 
             for (uint i = 0; i < LineLength; i++)
             {
-                if (_line[i] == 0)
+                if (line[i] == 0)
                     positions.Add(i);
             }
 
@@ -46,37 +46,37 @@
 
         private uint? GetWinner()
         {
-            if (_line[0] != 0 && _line[0] == _line[1] && _line[0] == _line[2])
-                return _line[0];
+            if (line[0] != 0 && line[0] == line[1] && line[0] == line[2])
+                return line[0];
 
-            if (_line[3] != 0 && _line[3] == _line[4] && _line[3] == _line[5])
-                return _line[3];
+            if (line[3] != 0 && line[3] == line[4] && line[3] == line[5])
+                return line[3];
 
-            if (_line[6] != 0 && _line[6] == _line[7] && _line[6] == _line[8])
-                return _line[6];
+            if (line[6] != 0 && line[6] == line[7] && line[6] == line[8])
+                return line[6];
 
-            if (_line[0] != 0 && _line[0] == _line[3] && _line[0] == _line[6])
-                return _line[0];
+            if (line[0] != 0 && line[0] == line[3] && line[0] == line[6])
+                return line[0];
 
-            if (_line[1] != 0 && _line[1] == _line[4] && _line[1] == _line[7])
-                return _line[1];
+            if (line[1] != 0 && line[1] == line[4] && line[1] == line[7])
+                return line[1];
 
-            if (_line[2] != 0 && _line[2] == _line[5] && _line[2] == _line[8])
-                return _line[2];
+            if (line[2] != 0 && line[2] == line[5] && line[2] == line[8])
+                return line[2];
 
-            if (_line[0] != 0 && _line[0] == _line[4] && _line[0] == _line[8])
-                return _line[0];
+            if (line[0] != 0 && line[0] == line[4] && line[0] == line[8])
+                return line[0];
 
-            if (_line[2] != 0 && _line[2] == _line[4] && _line[2] == _line[6])
-                return _line[2];
+            if (line[2] != 0 && line[2] == line[4] && line[2] == line[6])
+                return line[2];
 
-            if (Array.IndexOf(_line, 0u) == -1)
+            if (Array.IndexOf(line, 0u) == -1)
                 return 0u;
 
             return null;
         }
 
-        private void ValidateLine(uint[] line)
+        protected void ValidateLine(uint[] line)
         {
             if (line.Length != LineLength)
                 throw new ArgumentException($"Line must be of length { LineLength }", nameof(line));
@@ -85,13 +85,13 @@
                 ValidateValue(v);
         }
 
-        private void ValidateValue(uint value)
+        protected void ValidateValue(uint value)
         {
             if (value > MaxCellValue)
                 throw new ArgumentException($"Cell value cannot exceed { MaxCellValue }", nameof(value));
         }
 
-        private void ValidatePosition(uint position)
+        protected void ValidatePosition(uint position)
         {
             if (position > MaxPosition)
                 throw new ArgumentException($"Position cannot exceed { MaxPosition }", nameof(position));
