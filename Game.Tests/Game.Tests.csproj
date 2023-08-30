@@ -25,4 +25,10 @@
     <ProjectReference Include="..\Game\Game.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Boards\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Boards\" />
+  </ItemGroup>
 </Project>
