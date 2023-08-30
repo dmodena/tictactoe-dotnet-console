@@ -27,8 +27,10 @@
 
   <ItemGroup>
     <None Remove="Boards\" />
+    <None Remove="Players\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Boards\" />
+    <Folder Include="Players\" />
   </ItemGroup>
 </Project>
