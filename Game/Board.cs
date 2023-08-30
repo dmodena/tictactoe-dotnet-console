@@ -1,6 +1,6 @@
 ﻿namespace Game
 {
-    public class Board
+    public class Board : IBoard
     {
         public uint[] Line { get => _line; }
         public uint[] AvailablePositions { get => GetAvailablePositions(); }
