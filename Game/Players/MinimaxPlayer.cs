@@ -1,4 +1,6 @@
-﻿namespace Game
+﻿using Game.Boards;
+
+namespace Game.Players
 {
     public class MinimaxPlayer : IPlay
     {

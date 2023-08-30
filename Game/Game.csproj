@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Players\" />
+    <None Remove="Boards\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Players\" />
+    <Folder Include="Boards\" />
+  </ItemGroup>
 </Project>

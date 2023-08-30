@@ -1,4 +1,4 @@
-﻿namespace Game
+﻿namespace Game.Players
 {
     public interface IPlay
     {
