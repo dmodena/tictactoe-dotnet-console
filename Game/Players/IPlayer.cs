@@ -1,6 +1,6 @@
 ﻿namespace Game.Players
 {
-    public interface IPlay
+    public interface IPlayer
     {
         uint? Play(uint[] values, uint playerValue);
     }

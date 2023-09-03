@@ -1,6 +1,6 @@
 ﻿namespace Game.Players
 {
-    public class PredictablePlayer : IPlay
+    public class PredictablePlayer : IPlayer
     {
         public uint? Play(uint[] values, uint playerValue)
         {

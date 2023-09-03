@@ -1,6 +1,6 @@
 ﻿namespace Game.Players
 {
-    public class RandomPlayer : IPlay
+    public class RandomPlayer : IPlayer
     {
         public uint? Play(uint[] values, uint playerValue)
         {

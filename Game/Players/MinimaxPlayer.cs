@@ -2,7 +2,7 @@
 
 namespace Game.Players
 {
-    public class MinimaxPlayer : IPlay
+    public class MinimaxPlayer : IPlayer
     {
         private IReversingBoard _board;
         private uint _maximizerValue;
